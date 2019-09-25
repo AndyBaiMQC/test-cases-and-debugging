@@ -8,15 +8,16 @@ let eq = (lhs, rhs) => {
     return lhs === rhs
 }
 let verifyEquals = (lhs, rhs) => {
-    if (!eq(lhs, rhs)) throw new Error("The expected output doesn't match the actual output")
-}
-// we need 5 test cases. 
+        if (!eq(lhs, rhs)) throw new Error("The expected output doesn't match the actual output")
+    }
+    // we need 5 test cases. 
 let inputs = [
+    "radar", "", "a", "javascript", "aa"
 
 ]
 
 let outputs = [
-
+    true, false, true, false, true
 ]
 
 /*
@@ -26,7 +27,21 @@ RADAR -> Yes
 JAVASCRIPT -> No
 */
 function f(str) {
-
+    if (str.length == 0) return false
+    else if (str.length == 1) return true
+    else {
+        let first = str.slice(0, (str.length) / 2)
+        let second = str.slice((str.length + 1) / 2, str.length)
+        let i = 0
+        let j = first.length
+        while (i !== j) {
+            if (first[i] == second[j]) {
+                i++
+                j++
+            } else return false
+        }
+        return true
+    }
 }
 
 function runTest(i) {
