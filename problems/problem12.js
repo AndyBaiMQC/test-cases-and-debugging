@@ -50,10 +50,10 @@ HINTS:
    - Use a for loop inside another for loop
 */
 function f(input) {
-    if (Array.isArray(input[0]) == false || Array.isArray(input[1]) == false) return undefined
+    if (input.length == 0 || (Array.isArray(input[0]) == false || Array.isArray(input[1]) == false)) return undefined
     else {
-        let a = input[0]
-        let b = input[1]
+        let a = input[0].sort()
+        let b = input[1].sort()
         let result = []
         let i = 0
         let j = 0
@@ -80,6 +80,7 @@ function f(input) {
         return result
     }
 }
+
 
 function runTest(i) {
     if (i > inputs.length) throw new Error("You do not have enough test cases");
